@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"rootDir": "source-server",
+		"outDir": "dist-server",
+		"target": "es5",
+		"lib": ["es6"],
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"sourceMap": true
+	},
+	"include": [
+		"source-server"
+	],
+	"exclude": [
+		"source-server/_archive",
+		"source",
+	]
+}

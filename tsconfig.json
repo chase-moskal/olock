@@ -1,5 +1,4 @@
 {
-	"jsdoc": "dist/docs2",
 	"compilerOptions": {
 		"baseUrl": ".",
 		"rootDir": "source",
@@ -19,6 +18,7 @@
 		"source/**/*.ts"
 	],
 	"exclude": [
-		"source/_archive"
+		"source/_archive",
+		"source-server"
 	]
 }

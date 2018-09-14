@@ -15,9 +15,9 @@
 	"license": "ISC",
 	"scripts": {
 		"prepare": "npm run build -s && npm test -s",
-		"build": "run-s build-clean && run-p build-copy build-pages build-scripts build-styles && echo ✔ done production build",
-		"build:debug": "run-s build-clean && run-p build-copy build-pages:debug build-scripts:debug build-styles && echo ✔ done debug build",
-		"build-clean": "rimraf dist && mkdirp dist && run-p build-clean-index",
+		"build": "run-s build-clean && run-p build-server build-copy build-pages build-scripts build-styles && echo ✔ done production build",
+		"build:debug": "run-s build-clean && run-p build-server build-copy build-pages:debug build-scripts:debug build-styles && echo ✔ done debug build",
+		"build-clean": "rimraf dist dist-server && mkdirp dist dist-server && run-p build-clean-index",
 		"build-clean-index": "barrelsby --exclude \"(.+-global\\..+|.+\\.(test|bundle).*)\" --delete --directory source && replace \";\" \"\" source/index.ts --silent",
 		"build-copy": "cp .nojekyll dist && cp -R assets dist/assets",
 		"build-pages": "pug --no-debug source -o dist",
@@ -28,6 +28,7 @@
 		"watch": "run-p watch-pages watch-styles",
 		"watch-pages": "pug --watch --pretty source -o dist",
 		"watch-styles": "npm run build-styles -s -- --watch",
+		"build-server": "tsc -p tsconfig.server.json",
 		"test": "exit 0",
 		"deploy": "./deploy.sh gh-pages",
 		"start": "http-server ./dist"
